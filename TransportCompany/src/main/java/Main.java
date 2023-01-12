@@ -13,7 +13,6 @@ public class Main {
         Company company = new Company();
         company.setId(1);
         company.setName("DHL");
-        company.setAddress("Sofia");
 
         CompanyDAO.saveCompany(company);
 
