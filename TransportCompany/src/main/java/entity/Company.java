@@ -1,9 +1,12 @@
 package entity;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -15,29 +18,52 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="name", nullable = false)
+    @NotNull
+    //@Column(name="name", nullable = false)
     private String name;
 
+    @OneToMany
+    //@Column(name = "transportations")
+    private Set<Transportation> transportations;
 
+    @OneToMany()
+    private Set<Employee> employees;
+    @OneToMany()
+    private Set<Vehicle> vehicles;
+
+    @ManyToMany()
+    private Set<Client> clients;
 
     public Company() {
+        this.name = "";
+        this.transportations = new HashSet<>();
+        this.employees = new HashSet<>();
+        this.vehicles = new HashSet<>();
+        this.clients = new HashSet<>();
     }
-
     public Company(String name) {
+        this();
         this.name = name;
     }
-
-    public Company(long id, String name) {
-        this.id = id;
-        this.name = name;
+    public Company(String name, Set<Employee> employees) {
+        this(name);
+        this.employees = employees;
+    }
+    public Company(String name, Set<Employee> employees, Set<Vehicle> vehicles) {
+        this(name, employees);
+        this.vehicles = vehicles;
+    }
+    public Company(String name, Set<Employee> employees, Set<Vehicle> vehicles, Set<Client> clients) {
+        this(name, employees, vehicles);
+        this.clients = clients;
     }
 
-    public Company(long id, String name, String address) {
-        this.id = id;
-        this.name = name;
-
+    public void addClients(Client client) {
+        this.clients.add(client);
     }
-
+    public void addClients(Set<Client> clients) {
+        this.clients.addAll(clients);
+    }
 
 
     @Override

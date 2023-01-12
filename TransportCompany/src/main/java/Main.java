@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Company company = new Company();
+        /*Company company = new Company();
         company.setId(1);
         company.setName("DHL");
 
@@ -25,6 +25,6 @@ public class Main {
         Owner owner = new Owner("Ivanov");
         OwnerDAO.saveOwner(owner);
         Owner owner1 = new Owner("Petrov");
-        OwnerDAO.saveOwner(owner1);
+        OwnerDAO.saveOwner(owner1);*/
     }
 }
