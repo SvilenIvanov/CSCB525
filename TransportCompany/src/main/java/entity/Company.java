@@ -19,19 +19,22 @@ public class Company {
     private long id;
 
     @NotNull
-    //@Column(name="name", nullable = false)
+    @Column(name="name", nullable = false)
     private String name;
 
     @OneToMany
-    //@Column(name = "transportations")
+    @Column(name = "transportations")
     private Set<Transportation> transportations;
 
     @OneToMany()
+    @Column(name = "employees")
     private Set<Employee> employees;
     @OneToMany()
+    @Column(name = "vehicles")
     private Set<Vehicle> vehicles;
 
     @ManyToMany()
+    @Column(name = "clients")
     private Set<Client> clients;
 
     public Company() {

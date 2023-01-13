@@ -10,14 +10,12 @@ public class Main {
 
     public static void main(String args[]) {
 
-        /*Company company = new Company();
-        company.setId(1);
-        company.setName("DHL");
+        Company company = new Company("Company1");
 
         CompanyDAO.saveCompany(company);
 
         List<Company> companyList = Arrays
-                .asList(new Company(1,"Nestle", "Plovdiv"), new Company(2,"SAP", "Sofia"));
+                .asList();
         CompanyDAO.saveCompanies(companyList);
         companyList = CompanyDAO.readCompanies();
         companyList.stream().forEach(System.out::println);
@@ -25,6 +23,6 @@ public class Main {
         Owner owner = new Owner("Ivanov");
         OwnerDAO.saveOwner(owner);
         Owner owner1 = new Owner("Petrov");
-        OwnerDAO.saveOwner(owner1);*/
+        OwnerDAO.saveOwner(owner1);
     }
 }
