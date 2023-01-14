@@ -21,6 +21,9 @@ public class Employee {
 
     @NotNull
     private String address;
+
+    @NotNull
+    private String name;
     @NotNull
     private BigDecimal salary;
     @ElementCollection(targetClass = LicenseTypes.class, fetch = FetchType.EAGER)
@@ -33,4 +36,31 @@ public class Employee {
 
     @OneToMany
     private Set<Transportation> transportations;
+
+    public Employee() {
+    }
+
+    public Employee(String name, String address, BigDecimal salary, Company company, Set<LicenseTypes> licenses) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.company = company;
+        this.licenses = licenses;
+    }
+    public Employee(String name, String address, BigDecimal salary, Company company, LicenseTypes license) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.company = company;
+        this.licenses = licenses;
+    }
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }

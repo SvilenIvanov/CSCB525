@@ -1,8 +1,10 @@
 import dao.CompanyDAO;
-import dao.OwnerDAO;
+import dao.EmployeeDAO;
 import entity.Company;
-import entity.Owner;
+import entity.Employee;
+import models.LicenseTypes;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,9 +22,8 @@ public class Main {
         companyList = CompanyDAO.readCompanies();
         companyList.stream().forEach(System.out::println);
 
-        Owner owner = new Owner("Ivanov");
-        OwnerDAO.saveOwner(owner);
-        Owner owner1 = new Owner("Petrov");
-        OwnerDAO.saveOwner(owner1);
+
+        Employee employee = new Employee("Pesho", "Sofia, ulitsa 12", new BigDecimal("500"), company, LicenseTypes.A);
+        EmployeeDAO.saveEmployee(employee);
     }
 }
