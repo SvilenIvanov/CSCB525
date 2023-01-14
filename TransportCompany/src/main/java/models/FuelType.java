@@ -1,6 +1,6 @@
 package models;
 
-public enum FuelTypes {
+public enum FuelType {
     PETROL,
     DIESEL,
     ELECTRIC,

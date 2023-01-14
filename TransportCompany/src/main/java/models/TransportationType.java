@@ -1,6 +1,6 @@
 package models;
 
-public enum TransportationTypes {
+public enum TransportationType {
     PASSENGER_TRIP,
     CARGO_TRIP
 }

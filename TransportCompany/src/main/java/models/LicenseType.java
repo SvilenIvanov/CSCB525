@@ -1,6 +1,6 @@
 package models;
 
-public enum LicenseTypes {
+public enum LicenseType {
     A,
     B,
     C,

@@ -21,11 +21,11 @@ public class Client {
     private String name;
 
     @ManyToMany
-    private Set<Transportation> trips = new HashSet<>();
+    private Set<Transportation> transportation = new HashSet<>();
 
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "company_id", nullable = false)
+    @ManyToMany
+    @JoinColumn(name = "company_id")
 
     private Set<Company> companies = new HashSet<>();
 

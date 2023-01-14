@@ -26,14 +26,14 @@ public class Company {
     @Column(name = "transportations")
     private Set<Transportation> transportations;
 
-    @OneToMany()
+    @OneToMany
     @Column(name = "employees")
     private Set<Employee> employees;
-    @OneToMany()
+    @OneToMany
     @Column(name = "vehicles")
     private Set<Vehicle> vehicles;
 
-    @ManyToMany()
+    @ManyToMany
     @Column(name = "clients")
     private Set<Client> clients;
 

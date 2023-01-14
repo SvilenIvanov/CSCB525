@@ -3,7 +3,7 @@ package entity;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import models.LicenseTypes;
+import models.LicenseType;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -26,9 +26,9 @@ public class Employee {
     private String name;
     @NotNull
     private BigDecimal salary;
-    @ElementCollection(targetClass = LicenseTypes.class, fetch = FetchType.EAGER)
+    @ElementCollection(targetClass = LicenseType.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    private Set<LicenseTypes> licenses = new HashSet<>();
+    private Set<LicenseType> licenses = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
@@ -40,19 +40,19 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String address, BigDecimal salary, Company company, Set<LicenseTypes> licenses) {
+    public Employee(String name, String address, BigDecimal salary, Company company, Set<LicenseType> licenses) {
         this.name = name;
         this.address = address;
         this.salary = salary;
         this.company = company;
         this.licenses = licenses;
     }
-    public Employee(String name, String address, BigDecimal salary, Company company, LicenseTypes license) {
+    public Employee(String name, String address, BigDecimal salary, Company company, LicenseType license) {
         this.name = name;
         this.address = address;
         this.salary = salary;
         this.company = company;
-        this.licenses = licenses;
+        this.licenses.add(license);
     }
     @Override
     public String toString() {
