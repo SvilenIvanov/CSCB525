@@ -84,6 +84,33 @@ public class Transportation {
             this.totalPrice = this.basePrice.multiply(BigDecimal.valueOf(cargoSize));
         }
     }
+    public Transportation(String startingPoint, String endingPoint, Date departure, Date arrival, BigDecimal basePrice, TransportationType type,
+                          int cargoSize, Employee driver, Company comp, Vehicle vehicle, Client client) {
+        this.startingPoint = startingPoint;
+        this.endingPoint = endingPoint;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.clients.add(client);
+        if (type == TransportationType.PASSENGER_TRIP) {
+            this.peopleOnboard = (short) (this.clients.size() + 1);
+        }
+        else {
+            this.peopleOnboard = 1;
+        }
+        this.cargoSize = cargoSize;
+        this.vehicle = vehicle;
+        this.driver = driver;
+        this.basePrice = basePrice;
+        this.type = type;
+        this.company = comp;
+
+        if (this.type == TransportationType.PASSENGER_TRIP) {
+            this.totalPrice = this.basePrice.multiply(BigDecimal.valueOf(this.clients.size()));
+        }
+        else {
+            this.totalPrice = this.basePrice.multiply(BigDecimal.valueOf(cargoSize));
+        }
+    }
 
     public void payClient(Client client) {
         this.paidClients.add(client);

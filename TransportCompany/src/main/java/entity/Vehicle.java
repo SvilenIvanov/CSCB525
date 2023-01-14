@@ -35,7 +35,7 @@ public class Vehicle {
     @ElementCollection(targetClass = LicenseType.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
 
-    private Set<LicenseType> requiredLicenses;
+    private Set<LicenseType> requiredLicenses = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "company_id")
