@@ -7,6 +7,8 @@ import models.FuelType;
 import models.LicenseType;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,14 +21,14 @@ public class Vehicle {
     private long id;
 
     @NotNull
-    private String make;
+    private String brand;
     @NotNull
     private String model;
     @NotNull
     @Enumerated(EnumType.STRING)
     private FuelType fuelType;
     @NotNull
-    private short peopleCapacity;
+    private int peopleCapacity;
     @NotNull
     private int cargoCapacityKg;
 
@@ -45,8 +47,8 @@ public class Vehicle {
     public Vehicle() {
     }
 
-    public Vehicle(String make, String model, FuelType fuelType, short peopleCapacity, int cargoCapacityKg, Set<LicenseType> requiredLicenses, Company company) {
-        this.make = make;
+    public Vehicle(String brand, String model, FuelType fuelType, int peopleCapacity, int cargoCapacityKg, Set<LicenseType> requiredLicenses, Company company) {
+        this.brand = brand;
         this.model = model;
         this.fuelType = fuelType;
         this.peopleCapacity = peopleCapacity;
@@ -55,12 +57,21 @@ public class Vehicle {
         this.company = company;
     }
 
+    public Vehicle(String brand, String model, FuelType fuelType, int peopleCapacity, int cargoCapacityKg, LicenseType requiredLicenses, Company company) {
+        this.brand = brand;
+        this.model = model;
+        this.fuelType = fuelType;
+        this.peopleCapacity = peopleCapacity;
+        this.cargoCapacityKg = cargoCapacityKg;
+        this.requiredLicenses.add(requiredLicenses);
+        this.company = company;
+    }
 
     @Override
     public String toString() {
         return "Vehicle{" +
                 "id=" + id +
-                ", make='" + make + '\'' +
+                ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", fuelType=" + fuelType +
                 ", peopleCapacity=" + peopleCapacity +
