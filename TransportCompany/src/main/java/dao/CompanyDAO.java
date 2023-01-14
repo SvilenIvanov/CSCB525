@@ -20,7 +20,7 @@ public class CompanyDAO {
     public static void saveCompanies(List<Company> companyList) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            companyList.stream().forEach((com) -> session.save(com));
+            companyList.forEach(session::save);
             transaction.commit();
         }
     }

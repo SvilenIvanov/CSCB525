@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Company company = new Company("Company1");
+        Company company = new Company("CompanyXX");
 
         CompanyDAO.saveCompany(company);
 
