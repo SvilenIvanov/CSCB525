@@ -51,8 +51,8 @@ public class Transportation {
     @ManyToMany
     private Set<Client> clients = new HashSet<>();
 
-    @ManyToMany
-    private Set<Client> paidClients = new HashSet<>();
+//    @ManyToMany
+//    private Set<Client> paidClients = new HashSet<>();
 
     public Transportation() {
     }
@@ -112,9 +112,9 @@ public class Transportation {
         }
     }
 
-    public void payClient(Client client) {
-        this.paidClients.add(client);
-    }
+//    public void payClient(Client client) {
+//        this.paidClients.add(client);
+//    }
 
     @Override
     public String toString() {

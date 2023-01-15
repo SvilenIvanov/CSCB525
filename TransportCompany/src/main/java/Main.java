@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class Main {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         Company company = new Company("CompanyXY");
         //Company company2 = new Company("Company2");
@@ -31,9 +31,10 @@ public class Main {
 
         Vehicle vehicle = new Vehicle("BMW", "750i", FuelType.PETROL, 5, 500, LicenseType.B, company);
         VehicleDAO.saveVehicle(vehicle);
-
         Transportation transportation = new Transportation("Sofia", "Plovdiv", new Date(System.currentTimeMillis()),
                 new Date(System.currentTimeMillis()), new BigDecimal("500"), TransportationType.CARGO_TRIP, 5, employee, company, vehicle, client);
         TransportationDAO.saveTransportation(transportation);
+
+
     }
 }
