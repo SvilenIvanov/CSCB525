@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="af432177-54c0-4055-876d-0b75c57e2fb0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/CompanyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/TransportationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/TransportationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/entity/Company.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

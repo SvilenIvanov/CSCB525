@@ -58,11 +58,21 @@ public class Company {
         this.clients = clients;
     }
 
-    public void addClients(Client client) {
-        this.clients.add(client);
+    public void addClient(Client client) {
+        if (!clients.contains(client)) {
+            clients.add(client);
+            client.getCompanies().add(this);
+        }
     }
-    public void addClients(Set<Client> clients) {
-        this.clients.addAll(clients);
+
+    public void removeClient(Client client) {
+        this.clients.remove(client);
+        client.setCompany(null);
+    }
+
+    public void updateClient(Client client) {
+        this.clients.remove(client);
+        this.clients.add(client);
     }
 
     public long getId() {

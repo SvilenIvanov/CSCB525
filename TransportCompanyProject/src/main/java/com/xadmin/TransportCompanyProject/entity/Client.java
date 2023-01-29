@@ -20,7 +20,8 @@ public class Client {
     @ManyToMany
     private Set<Transportation> transportation = new HashSet<>();
 
-
+    @ManyToMany
+    private Set<Company> companies = new HashSet<>();
     public Client() {
     }
 
@@ -28,13 +29,24 @@ public class Client {
         this.name = name;
     }
     public Client(String name,Company company) {
-        this.name = name;
+        this(name);
+        this.companies.add(company);
     }
     public Client(String name, Set<Company> companies) {
-        this.name = name;
+        this(name);
+        this.companies = companies;
     }
 
 
+    public void setCompany(Company company) {
+        if(company != null) {
+            this.companies.add(company);
+            company.getClients().add(this);
+        }
+    }
+    public Set<Company> getCompanies() {
+        return companies;
+    }
     public long getId() {
         return id;
     }
