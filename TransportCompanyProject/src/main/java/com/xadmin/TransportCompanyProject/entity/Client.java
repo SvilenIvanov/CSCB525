@@ -17,36 +17,40 @@ public class Client {
     @NotNull
     private String name;
 
+    @ManyToMany(mappedBy = "clients")
+    private Set<Company> companies = new HashSet<>();
+
     @ManyToMany
     private Set<Transportation> transportation = new HashSet<>();
 
-    @ManyToMany
-    private Set<Company> companies = new HashSet<>();
     public Client() {
     }
 
     public Client(String name) {
         this.name = name;
     }
-    public Client(String name,Company company) {
+
+    public Client(String name, Company company) {
         this(name);
-        this.companies.add(company);
+        setCompany(company);
     }
+
     public Client(String name, Set<Company> companies) {
         this(name);
         this.companies = companies;
     }
 
-
     public void setCompany(Company company) {
-        if(company != null) {
+        if (company != null) {
             this.companies.add(company);
             company.getClients().add(this);
         }
     }
+
     public Set<Company> getCompanies() {
         return companies;
     }
+
     public long getId() {
         return id;
     }
@@ -75,6 +79,9 @@ public class Client {
     public String toString() {
         return "Client{" +
                 "id=" + id +
-                ", name='" + name + '\'';
+                ", name='" + name + '\'' +
+                ", companies=" + companies +
+                ", transportation=" + transportation +
+                '}';
     }
 }

@@ -19,6 +19,11 @@ public class Company {
     @Column(name="name", nullable = false)
     private String name;
 
+    @NotNull
+    @Column(name="income", nullable = false)
+    private double income;
+
+
     @OneToMany
     @Column(name = "transportations")
     private Set<Transportation> transportations;
@@ -123,6 +128,14 @@ public class Company {
         this.clients = clients;
     }
 
+    public double getIncome() {
+        return income;
+    }
+
+    public void setIncome(double income) {
+        this.income = income;
+    }
+
     @Override
     public String toString() {
         return "Company{" +
@@ -130,4 +143,6 @@ public class Company {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+
 }
