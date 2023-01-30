@@ -7,6 +7,8 @@
     <list default="true" id="af432177-54c0-4055-876d-0b75c57e2fb0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/TransportCompanyProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/TransportCompanyProjectApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/repositories/CompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/services/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransportCompanyProject/src/main/java/com/xadmin/TransportCompanyProject/services/CompanyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

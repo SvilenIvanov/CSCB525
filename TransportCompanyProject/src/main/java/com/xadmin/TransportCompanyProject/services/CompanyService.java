@@ -21,6 +21,21 @@ public class CompanyService {
         companyDao.saveAndFlush(company);
     }
 
+    public Company findCompanyById(Long id) {
+        return companyDao.findById(id).orElse(null);
+    }
+
+    public List<Company> findAllCompanies() {
+        return companyDao.findAll();
+    }
+
+    public void updateCompany(Company company) {
+        companyDao.save(company);
+    }
+
+    public void deleteCompany(Long id) {
+        companyDao.deleteById(id);
+    }
 
     public List<Company> sortByName() {
         List<Company> company = companyDao.findAll();
