@@ -22,9 +22,6 @@ public class Client {
     private String address;
 
     @ManyToMany
-    @JoinTable(name = "client_company",
-            joinColumns = @JoinColumn(name = "client_id"),
-            inverseJoinColumns = @JoinColumn(name = "company_id"))
     private Set<Company> companies;
 
     public Client() {

@@ -49,6 +49,11 @@ public class Company {
         this();
         this.name = name;
     }
+    public Company(String name, double income) {
+        this();
+        this.name = name;
+        this.income = income;
+    }
     public Company(String name, Set<Employee> employees) {
         this(name);
         this.employees = employees;

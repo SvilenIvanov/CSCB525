@@ -11,5 +11,4 @@ public interface CompanyDAO extends JpaRepository<Company, Long> {
     Optional<Company> findById(Long id);
     Optional<Company> findByName(String name);
 
-
 }

@@ -15,9 +15,10 @@ public class ClientService {
     public ClientService(ClientDAO clientDAO) {
         this.clientDAO = clientDAO;
     }
-    public void createClient(Client client){
+    public void createClient(Client client) {
         clientDAO.save(client);
     }
+
     public Client saveClient(@NotNull Client client) {
         return clientDAO.save(client);
     }

@@ -34,17 +34,18 @@ public class TransportCompanyProjectApplication {
 		clientService.createClient(ZdravkoClient);
 		clientService.createClient(Client2);
 
-		Company company = new Company("NewCompany");
-		Company company2 = new Company("XYZCompany2");
+		Company company = new Company("NewCompany", -50000444);
+		Company company2 = new Company("XYZCompany2", -50000447);
 		companyService.createCompany(company);
 		companyService.createCompany(company2);
 		System.out.println("Zdravko:" + ZdravkoClient.getId() + " and client2:" + Client2.getId());
 		companyService.addClientToCompany(company, ZdravkoClient);
 		companyService.addClientToCompany(company, Client2);
+		companyService.removeClientFromCompany(company, Client2);
+
 		companyService.saveCompany(company);
 
-		//companyService.addClient(company, ZdravkoClient);
-
+		System.out.println(companyService.sortCompaniesByNameAndIncome());
 
 
 	}

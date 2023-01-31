@@ -6,6 +6,8 @@ import com.xadmin.TransportCompanyProject.repositories.CompanyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -33,7 +35,6 @@ public class CompanyService {
             Company company = optionalCompany.get();
             company.addClient(client);
             client.getCompanies().add(company);
-            companyDAO.save(company);
         }
     }
 
@@ -43,7 +44,6 @@ public class CompanyService {
             Company company = optionalCompany.get();
             company.removeClient(client);
             client.getCompanies().remove(company);
-            companyDAO.save(company);
         }
     }
 
@@ -52,7 +52,6 @@ public class CompanyService {
         if (optionalCompany.isPresent()) {
             Company company = optionalCompany.get();
             company.updateClient(client);
-            companyDAO.save(company);
         }
     }
 
@@ -66,7 +65,6 @@ public class CompanyService {
     public void removeClientFromCompany(Company company, Client client) {
         company.getClients().remove(client);
         client.getCompanies().remove(company);
-        companyDAO.save(company);
     }
 
     public void updateClientForCompany(Company company, Client client) {
@@ -75,7 +73,18 @@ public class CompanyService {
         companies.add(company);
         company.getClients().remove(client);
         company.getClients().add(client);
-        companyDAO.save(company);
+    }
+
+    public List<Company> sortByName() {
+        List<Company> company = companyDAO.findAll();
+        company.sort(Comparator.comparing(Company::getName));
+        return company;
+    }
+
+    public List<Company> sortByIncome() {
+        List<Company> company = companyDAO.findAll();
+        company.sort(Comparator.comparing(Company::getIncome));
+        return company;
     }
 
     public boolean hasClient(Company company, Client client) {
