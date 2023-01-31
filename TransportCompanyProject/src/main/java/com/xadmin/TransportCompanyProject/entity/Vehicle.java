@@ -16,6 +16,75 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    public long getId() {
+        return id;
+    }
+
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public int getPeopleCapacity() {
+        return peopleCapacity;
+    }
+
+    public void setPeopleCapacity(int peopleCapacity) {
+        this.peopleCapacity = peopleCapacity;
+    }
+
+    public int getCargoCapacityKg() {
+        return cargoCapacityKg;
+    }
+
+    public void setCargoCapacityKg(int cargoCapacityKg) {
+        this.cargoCapacityKg = cargoCapacityKg;
+    }
+
+    public Set<LicenseType> getRequiredLicenses() {
+        return requiredLicenses;
+    }
+
+    public void setRequiredLicenses(Set<LicenseType> requiredLicenses) {
+        this.requiredLicenses = requiredLicenses;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Set<Transportation> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(Set<Transportation> trips) {
+        this.trips = trips;
+    }
+
     @NotNull
     private String brand;
     @NotNull

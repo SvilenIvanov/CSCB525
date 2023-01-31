@@ -48,8 +48,113 @@ public class Transportation {
     @ManyToMany
     private Set<Client> clients = new HashSet<>();
 
-//    @ManyToMany
-//    private Set<Client> paidClients = new HashSet<>();
+    public long getId() {
+        return id;
+    }
+
+    public String getStartingPoint() {
+        return startingPoint;
+    }
+
+    public void setStartingPoint(String startingPoint) {
+        this.startingPoint = startingPoint;
+    }
+
+    public String getEndingPoint() {
+        return endingPoint;
+    }
+
+    public void setEndingPoint(String endingPoint) {
+        this.endingPoint = endingPoint;
+    }
+
+    public Date getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(Date departure) {
+        this.departure = departure;
+    }
+
+    public Date getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(Date arrival) {
+        this.arrival = arrival;
+    }
+
+    public BigDecimal getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(BigDecimal basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public TransportationType getType() {
+        return type;
+    }
+
+    public void setType(TransportationType type) {
+        this.type = type;
+    }
+
+    public int getPeopleOnboard() {
+        return peopleOnboard;
+    }
+
+    public void setPeopleOnboard(int peopleOnboard) {
+        this.peopleOnboard = peopleOnboard;
+    }
+
+    public int getCargoSize() {
+        return cargoSize;
+    }
+
+    public void setCargoSize(int cargoSize) {
+        this.cargoSize = cargoSize;
+    }
+
+    public Employee getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Employee driver) {
+        this.driver = driver;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
 
     public Transportation() {
     }
