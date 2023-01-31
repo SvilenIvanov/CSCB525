@@ -1,51 +1,85 @@
 package com.xadmin.TransportCompanyProject.services;
 
+import com.xadmin.TransportCompanyProject.entity.Client;
 import com.xadmin.TransportCompanyProject.entity.Company;
 import com.xadmin.TransportCompanyProject.repositories.CompanyDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class CompanyService {
 
-    private final CompanyDAO companyDao;
 
-    public CompanyService(CompanyDAO companyDao) {
-        this.companyDao = companyDao;
+    private final CompanyDAO companyDAO;
+
+    @Autowired
+    public CompanyService(CompanyDAO companyDAO) {
+        this.companyDAO = companyDAO;
     }
 
-    public void createCompany(String name){
-        Company company = new Company(name);
-        companyDao.saveAndFlush(company);
+    public void createCompany(Company company){
+        companyDAO.save(company);
+    }
+    public void saveCompany(Company company){
+        companyDAO.saveAndFlush(company);
     }
 
-    public Company findCompanyById(Long id) {
-        return companyDao.findById(id).orElse(null);
+    public void addClientToCompany(Long companyId, Client client) {
+        Optional<Company> optionalCompany = companyDAO.findById(companyId);
+        if (optionalCompany.isPresent()) {
+            Company company = optionalCompany.get();
+            company.addClient(client);
+            client.getCompanies().add(company);
+            companyDAO.save(company);
+        }
     }
 
-    public List<Company> findAllCompanies() {
-        return companyDao.findAll();
+    public void removeClientFromCompany(Long companyId, Client client) {
+        Optional<Company> optionalCompany = companyDAO.findById(companyId);
+        if (optionalCompany.isPresent()) {
+            Company company = optionalCompany.get();
+            company.removeClient(client);
+            client.getCompanies().remove(company);
+            companyDAO.save(company);
+        }
     }
 
-    public void updateCompany(Company company) {
-        companyDao.save(company);
+    public void updateClientForCompany(Long companyId, Client client) {
+        Optional<Company> optionalCompany = companyDAO.findById(companyId);
+        if (optionalCompany.isPresent()) {
+            Company company = optionalCompany.get();
+            company.updateClient(client);
+            companyDAO.save(company);
+        }
     }
 
-    public void deleteCompany(Long id) {
-        companyDao.deleteById(id);
+    public void addClientToCompany(Company company, Client client) {
+        if (!company.getClients().contains(client)) {
+            company.getClients().add(client);
+            client.getCompanies().add(company);
+        }
     }
 
-    public List<Company> sortByName() {
-        List<Company> company = companyDao.findAll();
-        company.sort(Comparator.comparing(Company::getName));
-        return company;
+    public void removeClientFromCompany(Company company, Client client) {
+        company.getClients().remove(client);
+        client.getCompanies().remove(company);
+        companyDAO.save(company);
     }
 
-    public List<Company> sortByIncome() {
-        List<Company> company = companyDao.findAll();
-        company.sort(Comparator.comparing(Company::getIncome));
-        return company;
+    public void updateClientForCompany(Company company, Client client) {
+        Set<Company> companies = client.getCompanies();
+        companies.remove(company);
+        companies.add(company);
+        company.getClients().remove(client);
+        company.getClients().add(client);
+        companyDAO.save(company);
     }
+
+    public boolean hasClient(Company company, Client client) {
+        return company.getClients().contains(client);
+    }
+
 }

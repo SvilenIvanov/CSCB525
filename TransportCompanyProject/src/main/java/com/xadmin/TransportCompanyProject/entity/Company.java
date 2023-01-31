@@ -23,7 +23,6 @@ public class Company {
     @Column(name="income", nullable = false)
     private double income;
 
-
     @OneToMany
     @Column(name = "transportations")
     private Set<Transportation> transportations;
@@ -64,20 +63,20 @@ public class Company {
     }
 
     public void addClient(Client client) {
-        if (!clients.contains(client)) {
-            clients.add(client);
-            client.getCompanies().add(this);
-        }
+        clients.add(client);
     }
 
     public void removeClient(Client client) {
         this.clients.remove(client);
-        client.setCompany(null);
+        client.removeCompany(this);
     }
 
     public void updateClient(Client client) {
         this.clients.remove(client);
         this.clients.add(client);
+    }
+    public boolean hasClient(Client client) {
+        return clients.contains(client);
     }
 
     public long getId() {

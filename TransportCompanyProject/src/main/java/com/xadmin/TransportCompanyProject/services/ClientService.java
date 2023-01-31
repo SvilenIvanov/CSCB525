@@ -2,34 +2,35 @@ package com.xadmin.TransportCompanyProject.services;
 
 import com.xadmin.TransportCompanyProject.entity.Client;
 import com.xadmin.TransportCompanyProject.repositories.ClientDAO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
+    private final ClientDAO clientDAO;
 
-    @Autowired
-    private ClientDAO clientDAO;
-
-    public void createClient(Client client) {
+    public ClientService(ClientDAO clientDAO) {
+        this.clientDAO = clientDAO;
+    }
+    public void createClient(Client client){
         clientDAO.save(client);
     }
-
-    public Client findClientById(Long id) {
-        return clientDAO.findById(id).orElse(null);
+    public Client saveClient(@NotNull Client client) {
+        return clientDAO.save(client);
     }
 
-    public List<Client> findAllClients() {
+    public List<Client> getAllClients() {
         return clientDAO.findAll();
     }
 
-    public void updateClient(Client client) {
-        clientDAO.save(client);
+    public Optional<Client> getClientById(long id) {
+        return clientDAO.findById(id);
     }
 
-    public void deleteClient(Long id) {
-        clientDAO.deleteById(id);
+    public void deleteClient(@NotNull Client client) {
+        clientDAO.delete(client);
     }
 }
