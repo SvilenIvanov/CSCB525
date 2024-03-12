@@ -1,0 +1,2 @@
+Transport{id=1, departureDate=2025-02-24 21:34:56.76, deliveryDate=2027-02-24 21:34:56.76, destination='Italy', price=500.0, goods=Food, weight=0.0, vehicle=Bus, clientId=1, companyId=53, employeeId=2}
+Transport{id=53, departureDate=2025-03-04 21:54:45.539, deliveryDate=2026-03-04 21:54:45.539, destination='Belgrade', price=50.0, goods=HighValue, weight=10.0, vehicle=Cistern, clientId=1, companyId=152, employeeId=52}
